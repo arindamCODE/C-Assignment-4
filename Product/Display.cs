@@ -22,7 +22,7 @@ namespace Product
                     {
                         if(item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -46,7 +46,7 @@ namespace Product
                     {
                         if(item1.ID == item2.GroupID)
                         {   
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -57,28 +57,35 @@ namespace Product
 
         public void DisplayFound(string str)
         {
-            try
+            if(str == null)
+                Console.WriteLine("Please enter a string!");
+            else    
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
-
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
-
-                var res = pInfo.Where(p => p.Name.Contains(str));
-            
-                foreach (ProductGroup item1 in pGroup)
+                try
                 {
-                    foreach (ProductInfo item2 in res)
-                    {
-                        if (item1.ID == item2.GroupID)
+                    ProductDetailsFill obj = new ProductDetailsFill();
+
+                    List<ProductGroup> pGroup = obj.ProductGroupFill();
+                    List<ProductInfo> pInfo = obj.ProductFill();
+
+                    var res = pInfo.Where(p => p.Name.ToUpper().Contains(str.ToUpper()));
+
+                        foreach (ProductGroup item1 in pGroup)
                         {
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            foreach (ProductInfo item2 in res)
+                            {
+                                if (item1.ID == item2.GroupID)
+                                {
+                                    Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                                }
+                            }   
                         }
-                    }   
+                   
+                }catch(Exception ex){
+                    Console.WriteLine(ex.Message);
                 }
-            }catch(Exception ex){
-                Console.WriteLine(ex.Message);
-            }    
+            }
+                        
         }
 
         public void DisplayAfterDeletion1(int num)
@@ -98,7 +105,7 @@ namespace Product
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -124,7 +131,7 @@ namespace Product
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -150,7 +157,7 @@ namespace Product
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine(item1.Name + "||" + item2.Name + "||" + item2.Description + "||" + item2.rate);
+                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }

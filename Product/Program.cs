@@ -64,7 +64,7 @@ namespace Product
                                                 default: Console.WriteLine("Sorry! Wrong Input");
                                                         break;        
                                                 }
-                                                Console.WriteLine("Would you like to Continue with the delete only ?");
+                                                Console.WriteLine("Would you like to Continue with the delete only(Yes/No) ?");
                                                 ch1 = Console.ReadLine();
                                         }while(ch1.ToUpper() == "YES");
                                         break;
@@ -72,7 +72,7 @@ namespace Product
                                 default: Console.WriteLine("Sorry! Wrong Input");
                                         break;        
                         }
-                        Console.WriteLine("Would you like to Continue?");
+                        Console.WriteLine("Would you like to Continue?(Yes/No)");
                         ch = Console.ReadLine();
                 }while(ch.ToUpper() == "YES");                         
             }catch(Exception ex){
