@@ -70,6 +70,10 @@ namespace Product
 
                     var res = pInfo.Where(p => p.Name.ToUpper().Contains(str.ToUpper()));
 
+                    if(res.Count() < 1)
+                        Console.WriteLine("No Match! ");
+                    else
+                    {
                         foreach (ProductGroup item1 in pGroup)
                         {
                             foreach (ProductInfo item2 in res)
@@ -80,7 +84,8 @@ namespace Product
                                 }
                             }   
                         }
-                   
+                    }
+
                 }catch(Exception ex){
                     Console.WriteLine(ex.Message);
                 }
