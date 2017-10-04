@@ -174,8 +174,26 @@ namespace Product
 
         public List<ProductInfo> ProductDelete4(List<ProductInfo> productInfo, string productName)
         {
-           productInfo.RemoveAll(item => item.Name.ToUpper() == productName.ToUpper());
-           return productInfo;
+            List<ProductInfo> productInfoSample = null;
+
+            foreach(ProductInfo item in productInfo)
+            {
+                if(item.Name.Contains(productName))
+                {
+                    FindIndex objectFindIndex = new FindIndex();
+                    int index = objectFindIndex.Find(productName);
+                    productInfo.RemoveAt(index);
+                    break;
+                }
+                else
+                { 
+                    productInfo = productInfoSample;
+                    break;
+                }    
+            }
+
+            return productInfo;
+            
         }
     }
 }

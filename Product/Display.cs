@@ -188,20 +188,24 @@ namespace Product
 
                 List<ProductInfo> productNew = objectProductDetailsFill.ProductDelete4(productInfo, productName);
 
-                foreach (ProductGroup item1 in productGroup)
-                {
-                    foreach (ProductInfo item2 in productNew)
+                    if (productNew == null)
                     {
-                        if (item1.ID == item2.GroupID)
+                        Console.WriteLine("No Match!");
+                    }
+                    else
+                    {
+                        foreach (ProductGroup item1 in productGroup)
                         {
-                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name)) + " || Product Group Name: " + item1.Name + " || Product Name: " + item2.Name + " || Product Description: " + item2.Description + " || Product Rate: " + item2.rate);
+                            foreach (ProductInfo item2 in productNew)
+                            {
+                                if (item1.ID == item2.GroupID)
+                                {
+                                    Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name)) + " || Product Group Name: " + item1.Name + " || Product Name: " + item2.Name + " || Product Description: " + item2.Description + " || Product Rate: " + item2.rate);
+                                }   
+                            }
                         }
                     }
-                }
-                
-            }
-            catch (Exception ex)
-            {
+            }catch (Exception ex){
                 Console.WriteLine(ex.Message);
             }
         }
