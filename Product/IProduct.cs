@@ -7,9 +7,9 @@ namespace Product
     {
         List<ProductGroup> ProductGroupFill();
         List<ProductInfo> ProductFill();
-        IEnumerable<ProductInfo> ProductSort(List<ProductInfo> pInfo);
-        List<ProductInfo> ProductDelete1(List<ProductInfo> pInfo, int num);
-        List<ProductInfo> ProductDelete2(List<ProductInfo> pInfo);
-        List<ProductInfo> ProductDelete3(List<ProductInfo> pInfo, int st, int end);
+        IEnumerable<ProductInfo> ProductSort(List<ProductInfo> productInfo);
+        List<ProductInfo> ProductDelete1(List<ProductInfo> productInfo, int num);
+        List<ProductInfo> ProductDelete2(List<ProductInfo> productInfo);
+        List<ProductInfo> ProductDelete3(List<ProductInfo> productInfo, int st, int end);
     }
 }

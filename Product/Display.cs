@@ -10,19 +10,20 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
-                IEnumerable<ProductInfo> p = obj.ProductSort(pInfo);
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
+                IEnumerable<ProductInfo> product = objectProductDetailsFill.ProductSort(productInfo);
 
-                foreach (ProductGroup item1 in pGroup)
+                foreach (ProductGroup item1 in productGroup)
                 {
-                    foreach (ProductInfo item2 in p)
+                    foreach (ProductInfo item2 in product)
                     {
                         if(item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                            Console.WriteLine("Index: "+ (objectFindIndex.Find(item2.Name)) +  " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -35,18 +36,19 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
 
-                foreach(ProductGroup item1 in pGroup)
+                foreach(ProductGroup item1 in productGroup)
                 {
-                    foreach(ProductInfo item2 in pInfo)
+                    foreach(ProductInfo item2 in productInfo)
                     {
                         if(item1.ID == item2.GroupID)
                         {   
-                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name))+ " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -63,24 +65,25 @@ namespace Product
             {
                 try
                 {
-                    ProductDetailsFill obj = new ProductDetailsFill();
+                    FindIndex objectFindIndex = new FindIndex();
+                    ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                    List<ProductGroup> pGroup = obj.ProductGroupFill();
-                    List<ProductInfo> pInfo = obj.ProductFill();
+                    List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                    List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
 
-                    var res = pInfo.Where(p => p.Name.ToUpper().Contains(str.ToUpper()));
+                    var result = productInfo.Where(p => p.Name.ToUpper().Contains(str.ToUpper()));
 
-                    if(res.Count() < 1)
-                        Console.WriteLine("No Match! ");
+                    if(result.Count() < 1)
+                        Console.WriteLine("No Match!");
                     else
                     {
-                        foreach (ProductGroup item1 in pGroup)
+                        foreach (ProductGroup item1 in productGroup)
                         {
-                            foreach (ProductInfo item2 in res)
+                            foreach (ProductInfo item2 in result)
                             {
                                 if (item1.ID == item2.GroupID)
                                 {
-                                    Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                                    Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name)) + " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                                 }
                             }   
                         }
@@ -97,20 +100,21 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
 
-                List<ProductInfo> pNew = obj.ProductDelete1(pInfo,num);
+                List<ProductInfo> productNew = objectProductDetailsFill.ProductDelete1(productInfo,num);
 
-                foreach (ProductGroup item1 in pGroup)
+                foreach (ProductGroup item1 in productGroup)
                 {
-                    foreach (ProductInfo item2 in pInfo)
+                    foreach (ProductInfo item2 in productNew)
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name)) + " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -123,20 +127,21 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
 
-                List<ProductInfo> pNew = obj.ProductDelete2(pInfo);
+                List<ProductInfo> productNew = objectProductDetailsFill.ProductDelete2(productInfo);
 
-                foreach (ProductGroup item1 in pGroup)
+                foreach (ProductGroup item1 in productGroup)
                 {
-                    foreach (ProductInfo item2 in pInfo)
+                    foreach (ProductInfo item2 in productNew)
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name))+ " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
@@ -149,26 +154,56 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill obj = new ProductDetailsFill();
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> pGroup = obj.ProductGroupFill();
-                List<ProductInfo> pInfo = obj.ProductFill();
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
 
-                List<ProductInfo> pNew = obj.ProductDelete3(pInfo, st, end);
+                List<ProductInfo> productNew = objectProductDetailsFill.ProductDelete3(productInfo, st, end);
 
-                foreach (ProductGroup item1 in pGroup)
+                foreach (ProductGroup item1 in productGroup)
                 {
-                    foreach (ProductInfo item2 in pInfo)
+                    foreach (ProductInfo item2 in productNew)
                     {
                         if (item1.ID == item2.GroupID)
                         {
-                            Console.WriteLine("Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
+                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name))+ " || Product Group Name: "+item1.Name+" || Product Name: "+item2.Name+" || Product Description: "+item2.Description+" || Product Rate: "+item2.rate);
                         }
                     }
                 }
             }catch(Exception ex){
                 Console.WriteLine(ex.Message);
             }    
+        } 
+        public void DisplayAfterDeletion4(string productName)
+        {
+            try
+            {
+                FindIndex objectFindIndex = new FindIndex();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
+
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
+                List<ProductInfo> productInfo = objectProductDetailsFill.ProductFill();
+
+                List<ProductInfo> productNew = objectProductDetailsFill.ProductDelete4(productInfo, productName);
+
+                foreach (ProductGroup item1 in productGroup)
+                {
+                    foreach (ProductInfo item2 in productNew)
+                    {
+                        if (item1.ID == item2.GroupID)
+                        {
+                            Console.WriteLine("Index: " + (objectFindIndex.Find(item2.Name)) + " || Product Group Name: " + item1.Name + " || Product Name: " + item2.Name + " || Product Description: " + item2.Description + " || Product Rate: " + item2.rate);
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

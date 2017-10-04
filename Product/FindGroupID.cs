@@ -9,20 +9,14 @@ namespace Product
         {
             try
             {
-                ProductDetailsFill pdf = new ProductDetailsFill();
+                ProductDetailsFill objectProductDetailsFill = new ProductDetailsFill();
 
-                List<ProductGroup> PG = pdf.ProductGroupFill();
+                List<ProductGroup> productGroup = objectProductDetailsFill.ProductGroupFill();
 
-                foreach (ProductGroup item in PG)
+                foreach (ProductGroup item in productGroup)
                 {
-                    if(item.Name == "Dairy" && item.Name == str)
-                        return 1;
-                    if(item.Name == "Chocolate" && item.Name == str)
-                        return 2;
-                    if(item.Name == "Juice" && item.Name == str)
-                        return 3;
-                    if(item.Name == "Sweet" && item.Name == str)
-                        return 4;
+                    if(str == item.Name)
+                        return item.ID;
                 }    
             }catch(Exception ex){
                 Console.WriteLine(ex.Message);
