@@ -85,12 +85,14 @@ namespace Product
                                 default: Console.WriteLine("Sorry! Wrong Input");
                                         break;        
                         }
-                        Console.WriteLine("Would you like to Continue?(Yes/No)");
-                        ch = Console.ReadLine();
-                
-
-
-                }while(ch.ToUpper() == "YES");                         
+                        do
+                        {
+                                Console.WriteLine("Would you like to Continue?(Yes/No)");
+                                ch = Console.ReadLine();
+                        }while(ch.ToUpper() != "YES");
+                        
+                }while(ch.ToUpper() == "YES");
+                         
             }catch(Exception ex){
                     Console.WriteLine(ex.Message);
             }
